@@ -1,8 +1,9 @@
+import 'package:dars_17_uy_ishi/data/products_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lorem_ipsum/lorem_ipsum.dart';
 
-Widget product(int index) {
+Widget productWidget(int index, Product product) {
   return Column(
     children: [
       Container(
@@ -54,11 +55,7 @@ Widget product(int index) {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            loremIpsum(
-                              words: index == 1 ? 10 : 2,
-                            ),
-                          ),
+                          Text(product.name),
                           const Icon(CupertinoIcons.heart)
                         ],
                       ),
@@ -76,15 +73,15 @@ Widget product(int index) {
                       const SizedBox(
                         height: 10,
                       ),
-                      const Text(
-                        "50 000 000 sum",
+                      Text(
+                        "${product.price}",
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.w900,
                             fontSize: 18),
                       ),
-                      const Text(
-                        "Tashkent, Uchtepa",
+                      Text(
+                        product.address,
                       ),
                     ],
                   ),
@@ -126,9 +123,7 @@ Widget product(int index) {
                     children: [
                       Expanded(
                         child: Text(
-                          loremIpsum(
-                            words: index == 1 ? 10 : 2,
-                          ),
+                          product.name,
                         ),
                       ),
                       const Icon(CupertinoIcons.heart)
@@ -142,14 +137,14 @@ Widget product(int index) {
                     ),
                     child: const Text("New"),
                   ),
-                  const Text(
-                    "50 000 000 sum",
+                  Text(
+                    "${product.price}",
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w900,
                         fontSize: 18),
                   ),
-                  const Text("Tashkent, Uchtepa"),
+                  Text(product.address),
                 ],
               ),
       ),
